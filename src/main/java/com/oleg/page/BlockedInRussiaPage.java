@@ -17,4 +17,9 @@ public class BlockedInRussiaPage extends BasePage {
         input.clear();
         input.sendKeys(url);
     }
+
+    @Step
+    public boolean checkAdressIsBlockt()  {
+        return !elements(By.cssSelector("h2[class='uk-h2 uk-text-success']")).isEmpty();
+    }
 }

@@ -3,10 +3,8 @@ package com.oleg.blockedtest;
 import com.oleg.page.BlockedInRussiaPage;
 import com.oleg.parse.Parser;
 import com.wiley.basetests.SeleniumBaseTest;
-import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 
-import static com.sun.javafx.fxml.expression.Expression.get;
 import static java.lang.Thread.sleep;
 
 /**
@@ -24,8 +22,15 @@ public class BlockedTest extends SeleniumBaseTest {
         for (int i = 0; i < parser.parse().size(); i++) {
             String url = parser.parse().get(i);
             page.inputUrl(url);
+            BlockedInRussiaPage blockedInRussiaPage = new BlockedInRussiaPage();
+
+            if (blockedInRussiaPage.checkAdressIsBlockt() == true) {
+                System.out.println("доступен");
+            } else {
+                System.out.println("не доступен");
+            }
+
             sleep(10000);
         }
-
     }
 }
