@@ -30,11 +30,11 @@ public class BlockedTest extends SeleniumBaseTest {
             if (blockedInRussiaPage.checkAdressIsBlockt()) {
                 String fileName = "E:/test/test.xls";
                 UpdateStatusUtils.writeStatusUpToExcel(fileName);
-                //System.out.println("Доступен");
+
             } else {
                 String fileName = "E:/test/test.xls";
                 UpdateStatusUtils.writeStatusOffToExcel(fileName);
-                //System.out.println("Не доступен");
+
             }
         }
     }
