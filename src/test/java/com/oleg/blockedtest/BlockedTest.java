@@ -1,9 +1,12 @@
 package com.oleg.blockedtest;
 
 import com.oleg.page.BlockedInRussiaPage;
+import com.oleg.parse.UpdateStatusUtils;
 import com.oleg.parse.Parser;
 import com.wiley.basetests.SeleniumBaseTest;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 import static java.lang.Thread.sleep;
 
@@ -14,7 +17,7 @@ import static java.lang.Thread.sleep;
 public class BlockedTest extends SeleniumBaseTest {
 
     @Test
-    public void testCheckUrls() throws InterruptedException {
+    public void testCheckUrls() {
 
         Parser parser = new Parser();
         BlockedInRussiaPage page = get(BlockedInRussiaPage.class, "http://isitblockedinrussia.com");
@@ -24,13 +27,15 @@ public class BlockedTest extends SeleniumBaseTest {
             page.inputUrl(url);
             BlockedInRussiaPage blockedInRussiaPage = new BlockedInRussiaPage();
 
-            if (blockedInRussiaPage.checkAdressIsBlockt() == true) {
-                System.out.println("доступен");
+            if (blockedInRussiaPage.checkAdressIsBlockt()) {
+                String fileName = "E:/test/test.xls";
+                UpdateStatusUtils.writeStatusUpToExcel(fileName);
+                //System.out.println("Доступен");
             } else {
-                System.out.println("не доступен");
+                String fileName = "E:/test/test.xls";
+                UpdateStatusUtils.writeStatusOffToExcel(fileName);
+                //System.out.println("Не доступен");
             }
-
-            sleep(10000);
         }
     }
 }
