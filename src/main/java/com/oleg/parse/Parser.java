@@ -32,24 +32,29 @@ public class Parser {
 
         assert wb != null;
         Sheet sheet = wb.getSheetAt(0);
-        for (Row row : sheet) {
-            for (Cell cell : row) {
-                int cellType = cell.getCellType();
-                switch (cellType) {
-                    case Cell.CELL_TYPE_STRING:
-                        result.add(cell.getStringCellValue());
-                        break;
-                    case Cell.CELL_TYPE_NUMERIC:
-                        result.add(Double.toString(cell.getNumericCellValue()));
-                        break;
 
-                    case Cell.CELL_TYPE_FORMULA:
-                        result.add(Double.toString(cell.getNumericCellValue()));
-                        break;
-                    default:
-                        result.add("|");
-                        break;
-                }
+        int rownumber = sheet.getLastRowNum() + 1;
+        for (int i = 0; i < rownumber; i++) {
+
+            Row row = sheet.getRow(i);
+
+            Cell cell = row.getCell(0);
+            int cellType = cell.getCellType();
+
+            switch (cellType) {
+                case Cell.CELL_TYPE_STRING:
+                    result.add(cell.getStringCellValue());
+                    break;
+                case Cell.CELL_TYPE_NUMERIC:
+                    result.add(Double.toString(cell.getNumericCellValue()));
+                    break;
+
+                case Cell.CELL_TYPE_FORMULA:
+                    result.add(Double.toString(cell.getNumericCellValue()));
+                    break;
+                default:
+                    result.add("|");
+                    break;
             }
         }
 
