@@ -33,8 +33,8 @@ public class Parser {
         assert wb != null;
         Sheet sheet = wb.getSheetAt(0);
 
-        int rownumber = sheet.getLastRowNum() + 1;
-        for (int i = 0; i < rownumber; i++) {
+        int rowNumber = sheet.getLastRowNum() + 1;
+        for (int i = 0; i < rowNumber; i++) {
 
             Row row = sheet.getRow(i);
 
