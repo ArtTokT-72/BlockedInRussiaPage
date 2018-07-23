@@ -1,4 +1,4 @@
-package com.oleg.parse;
+package com.oleg.read;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -18,6 +18,8 @@ import java.util.List;
 
 public class ReadFromExcel {
 
+    static final String FILE_NAME_AND_DIRECTORY = "E:/test/test.xls";
+
     public List<String> read(String fileName) {
 
         InputStream in;
@@ -27,12 +29,10 @@ public class ReadFromExcel {
 
         if (wb != null) {
             Sheet sheet = wb.getSheetAt(0);
-
             int rowNumber = sheet.getLastRowNum() + 1;
             for (int i = 0; i < rowNumber; i++) {
 
                 Row row = sheet.getRow(i);
-
                 Cell cell = row.getCell(0);
                 int cellType = cell.getCellType();
 
@@ -43,7 +43,6 @@ public class ReadFromExcel {
                     case Cell.CELL_TYPE_NUMERIC:
                         result.add(Double.toString(cell.getNumericCellValue()));
                         break;
-
                     case Cell.CELL_TYPE_FORMULA:
                         result.add(Double.toString(cell.getNumericCellValue()));
                         break;
@@ -60,7 +59,7 @@ public class ReadFromExcel {
     private HSSFWorkbook getSheets(HSSFWorkbook wb) {
         InputStream in;
         try {
-            in = new FileInputStream("E:/test/test.xls");
+            in = new FileInputStream(FILE_NAME_AND_DIRECTORY);
             wb = new HSSFWorkbook(in);
         } catch (IOException e) {
         }
