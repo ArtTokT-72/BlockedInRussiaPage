@@ -19,7 +19,7 @@ public class BlockedInRussiaPage extends BasePage {
     }
 
     @Step
-    public boolean checkAdressIsBlockt() {
+    public boolean checkAddressIsBlocked() {
         return !elements(By.cssSelector("h2[class='uk-h2 uk-text-success']")).isEmpty();
     }
 }

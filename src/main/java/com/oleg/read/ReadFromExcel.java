@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * class allows you to do the parsing of the file type xls.
- * The data is placed in the Arraylist collection
+ * The data is placed in the ArrayList collection
  */
 
 public class ReadFromExcel {
