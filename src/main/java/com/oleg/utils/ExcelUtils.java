@@ -21,7 +21,7 @@ public class ExcelUtils {
             page.inputUrl(url);
             BlockedInRussiaPage blockedInRussiaPage = new BlockedInRussiaPage();
 
-            if (blockedInRussiaPage.checkAdressIsBlockt()) {
+            if (blockedInRussiaPage.checkAddressIsBlocked()) {
 
                 FileInputStream inputStream = null;
                 inputStream = getFileInputStream(inputStream);
