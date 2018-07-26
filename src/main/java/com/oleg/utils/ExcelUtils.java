@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import java.io.*;
 import java.util.Date;
 
-public class ExelUtils {
+public class ExcelUtils {
 
     static final String FILE_NAME_AND_DIRECTORY = "E:/test/test.xls";
 

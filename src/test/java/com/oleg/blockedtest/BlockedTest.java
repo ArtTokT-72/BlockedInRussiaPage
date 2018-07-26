@@ -1,7 +1,7 @@
 package com.oleg.blockedtest;
 
 import com.oleg.page.BlockedInRussiaPage;
-import com.oleg.utils.ExelUtils;
+import com.oleg.utils.ExcelUtils;
 import com.oleg.read.ReadFromExcel;
 import com.wiley.basetests.SeleniumBaseTest;
 import org.testng.annotations.Test;
@@ -17,7 +17,7 @@ public class BlockedTest extends SeleniumBaseTest {
 
         ReadFromExcel readFromExcel = new ReadFromExcel();
         BlockedInRussiaPage page = get(BlockedInRussiaPage.class, "http://isitblockedinrussia.com");
-        ExelUtils exelUtils = new ExelUtils();
-        exelUtils.getCheckUrls(readFromExcel, page);
+        ExcelUtils excelUtils = new ExcelUtils();
+        excelUtils.getCheckUrls(readFromExcel, page);
     }
 }
