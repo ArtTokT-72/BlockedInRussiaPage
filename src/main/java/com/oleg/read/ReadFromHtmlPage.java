@@ -15,7 +15,7 @@ public class ReadFromHtmlPage {
     public static void main(String[] args) throws IOException {
 
         Validate.isTrue(args.length == 1, "usage: supply url to fetch");
-        String url = "https://confluence.wiley.com/display/DEVOPS/WPA+Environments+Lineup";
+        String url = "https://studfiles.net/preview/2438081/";
 
         Document doc = Jsoup.connect(url).get();
 

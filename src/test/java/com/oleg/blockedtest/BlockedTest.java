@@ -15,9 +15,9 @@ public class BlockedTest extends SeleniumBaseTest {
     @Test
     public void testCheckUrls() {
 
-        ReadFromExcel readFromExcel = new ReadFromExcel();
         BlockedInRussiaPage page = get(BlockedInRussiaPage.class, "http://isitblockedinrussia.com");
         ExcelUtils excelUtils = new ExcelUtils();
+        ReadFromExcel readFromExcel = new ReadFromExcel();
         excelUtils.getCheckUrls(readFromExcel, page);
     }
 }

@@ -13,11 +13,11 @@ import java.util.Date;
 
 public class ExcelUtils {
 
-    static final String FILE_NAME_AND_DIRECTORY = "E:/test/test.xls";
+    static final String FILE_NAME_AND_DIRECTORY = "./src/test/resources/test.xls";
 
     public void getCheckUrls(ReadFromExcel readFromExcel, BlockedInRussiaPage page) {
-        for (int i = 0; i < readFromExcel.read(FILE_NAME_AND_DIRECTORY).size(); i++) {
-            String url = readFromExcel.read(FILE_NAME_AND_DIRECTORY).get(i);
+        for (int i = 0; i < readFromExcel.read().size(); i++) {
+            String url = readFromExcel.read().get(i);
             page.inputUrl(url);
             BlockedInRussiaPage blockedInRussiaPage = new BlockedInRussiaPage();
 
@@ -26,7 +26,7 @@ public class ExcelUtils {
                 FileInputStream inputStream = null;
                 inputStream = getFileInputStream(inputStream);
                 Workbook book = null;
-                book = getSheets((FileInputStream) inputStream, (Workbook) book);
+                book = getSheets(inputStream, book);
 
                 if (book != null) {
                     Sheet sheet = book.getSheet("Sheet0");

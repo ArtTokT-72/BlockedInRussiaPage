@@ -18,11 +18,10 @@ import java.util.List;
 
 public class ReadFromExcel {
 
-    static final String FILE_NAME_AND_DIRECTORY = "E:/test/test.xls";
+    static final String FILE_NAME_AND_DIRECTORY = "./src/test/resources/test.xls";
 
-    public List<String> read(String fileName) {
+    public List<String> read() {
 
-        InputStream in;
         List<String> result = new ArrayList<String>();
         HSSFWorkbook wb = null;
         wb = getSheets(wb);
